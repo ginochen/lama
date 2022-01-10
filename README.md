@@ -453,3 +453,15 @@ If you found this code helpful, please consider citing:
 <br>
 <p style="font-weight:normal; font-size: 16pt;text-align:center"align="center"  >Copyright © 2021</p>
 <br>
+
+
+
+
+
+### Gino notes 
+Add `device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")` to two files:
+1. /Users/ginochen/scripts/repo/inpainting_lama_fft/venv/env/lib/python3.9/site-packages/torch/nn/modules/module.py 
+2. ~/scripts/repo/inpainting_lama_fft/saicinpainting/evaluation/utils.py
+3. copy two images image.png and image_mask.png to the folder LaMa_test_images
+4. `python3 bin/predict.py model.path=$(pwd)/big-lama indir=$(pwd)/LaMa_test_images outdir=$(pwd)/output`
+5. open image in output/image_mask.png

@@ -12,6 +12,8 @@ def load_yaml(path):
 
 
 def move_to_device(obj, device):
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    #device = torch.device("cpu") # gino
     if isinstance(obj, nn.Module):
         return obj.to(device)
     if torch.is_tensor(obj):
